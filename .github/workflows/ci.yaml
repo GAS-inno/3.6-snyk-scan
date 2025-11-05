@@ -32,6 +32,9 @@ jobs:
       id: fmt
       run: terraform fmt -check || (echo "Formatting issues found."; exit 1)
 
+    - name: Terraform Init
+      id: init
+      run: terraform init
 
     - name: Terraform Validate
       id: validate
