@@ -1,5 +1,17 @@
 # Defines the lambda function code that will be zipped
 
+terraform {
+  required_providers {
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.0"
+    }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
 data "archive_file" "lambda" {
   type        = "zip"
   source_file = "./files/${var.lambda_file_name}.mjs"
